@@ -103,8 +103,8 @@ def launch_setup(context, *args, **kwargs):
 
     nodes.append(
         ComposableNode(
-            package="autoware_glog_component",
-            plugin="autoware::glog_component::GlogComponent",
+            package="glog_component",
+            plugin="GlogComponent",
             name="glog_component",
         )
     )
@@ -163,8 +163,8 @@ def launch_setup(context, *args, **kwargs):
 
     nodes.append(
         ComposableNode(
-            package="autoware_pointcloud_preprocessor",
-            plugin="autoware::pointcloud_preprocessor::CropBoxFilterComponent",
+            package="pointcloud_preprocessor",
+            plugin="pointcloud_preprocessor::CropBoxFilterComponent",
             name="crop_box_filter_self",
             remappings=[
                 ("input", "pointcloud_raw_ex"),
@@ -185,8 +185,8 @@ def launch_setup(context, *args, **kwargs):
 
     nodes.append(
         ComposableNode(
-            package="autoware_pointcloud_preprocessor",
-            plugin="autoware::pointcloud_preprocessor::CropBoxFilterComponent",
+            package="pointcloud_preprocessor",
+            plugin="pointcloud_preprocessor::CropBoxFilterComponent",
             name="crop_box_filter_mirror",
             remappings=[
                 ("input", "self_cropped/pointcloud_ex"),
@@ -199,8 +199,8 @@ def launch_setup(context, *args, **kwargs):
 
     nodes.append(
         ComposableNode(
-            package="autoware_pointcloud_preprocessor",
-            plugin="autoware::pointcloud_preprocessor::DistortionCorrectorComponent",
+            package="pointcloud_preprocessor",
+            plugin="pointcloud_preprocessor::DistortionCorrectorComponent",
             name="distortion_corrector_node",
             remappings=[
                 ("~/input/twist", "/sensing/vehicle_velocity_converter/twist_with_covariance"),
@@ -220,8 +220,8 @@ def launch_setup(context, *args, **kwargs):
         ring_outlier_output_frame = {"output_frame": ""}  # keep the output frame as the input frame
     nodes.append(
         ComposableNode(
-            package="autoware_pointcloud_preprocessor",
-            plugin="autoware::pointcloud_preprocessor::RingOutlierFilterComponent",
+            package="pointcloud_preprocessor",
+            plugin="pointcloud_preprocessor::RingOutlierFilterComponent",
             name="ring_outlier_filter",
             remappings=[
                 ("input", "rectified/pointcloud_ex"),
